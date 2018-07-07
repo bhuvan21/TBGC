@@ -29,11 +29,7 @@ def safe_input(itype, prompt, denied=None, accepted=None):
     elif itype == int:
         return safe_int_input(prompt, denied, accepted)
 
-def numbered_choice(prompt, choice_names, choices, input_func=safe_input, output_func=print, other_commands=False):
-    if other_commands:
-        other_commands = ["i", "I"]
-    else:
-        other_commands = []
+def numbered_choice(prompt, choice_names, choices, input_func=safe_input, output_func=print, other_commands=["i", "I"]):
 
     output_func(prompt)
     for n, choice in enumerate(choice_names):
