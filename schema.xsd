@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- definition of simple elements -->
+
+
+
+<!-- definition of attributes -->
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="intro" type="xs:string"/>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="steps" type="xs:integer"/>
+<xs:attribute name="longdesc" type="xs:string"/>
+<xs:attribute name="shortdesc" type="xs:string"/>
+
+<xs:element name="Speech" type="xs:string"/>
+
+<xs:element name="Feature">
+  <xs:complexType>
+    <xs:attribute ref="name" use="required"/>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="ConversationEnd">
+  <xs:complexType>
+    <xs:attribute ref="steps" use="required"/>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="Conversation">
+  <xs:complexType>
+    <xs:sequence>
+        <xs:element name="Speech" minOccurs="1"/>
+        <xs:element name="Conversation" minOccurs="0"/>
+        <xs:element name="ConversationEnd" minOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute ref="name" use="required"/>
+    <xs:attribute ref="type" use="required"/>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="NPC">
+  <xs:complexType>
+    <xs:sequence>
+        <xs:element name="Speech" minOccurs="0"/>
+        <xs:element name="Conversation" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute ref="name" use="required"/>
+    <xs:attribute ref="intro" use="required"/>
+  </xs:complexType>
+</xs:element>
+
+
+<xs:element name="Location">
+  <xs:complexType>
+    <xs:sequence>
+        <xs:element name="Location" minOccurs="0"/>
+        <xs:element name="Feature" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute ref="name" use="required"/>
+    <xs:attribute ref="shortdesc" use="required"/>
+    <xs:attribute ref="longdesc"/>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="LocationTree">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="Location" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+</xs:schema>

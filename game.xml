@@ -1,0 +1,32 @@
+<LocationTree>
+    <Location name="Jop Town" 
+    longdesc="This is a peaceful town populated by jops and jops only." 
+    shortdesc="JOP IN THE TOWN!">
+        
+        <Location name="Barn" shortdesc="A simple barn where JopCows are kept.">
+            <Feature name="Hay">Some hay lol</Feature>
+        </Location>
+        <NPC name="Joe" intro="Hey there, I'm joe">
+            <Conversation name="What is this place?" type="procedural">
+                <Speech>It's an ancient town</Speech>
+                <Speech>Most people haven't heard of it</Speech>
+
+                <Conversation name="wow!" type="procedural">
+                    <Speech>I know right, pretty cool!</Speech>
+                    <ConversationEnd steps="2"></ConversationEnd>
+                </Conversation>
+
+            </Conversation>
+
+            <Conversation name="How are you?" type="random">
+                <Speech>Pretty good</Speech>
+                <Speech>Alright I guess</Speech>
+                <Speech>Killin' it rn</Speech>
+                <ConversationEnd steps="1"></ConversationEnd>
+            </Conversation>
+
+        </NPC>
+        
+    </Location>
+
+</LocationTree>
